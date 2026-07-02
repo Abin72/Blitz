@@ -1,2 +1,3 @@
 # Blitz
-This is an Ai Automotive comparison and recommendation System 
+This is a Goverment Scheme Finder Ai
+
