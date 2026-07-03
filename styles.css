@@ -1,0 +1,1686 @@
+/* ===================================================================
+   GovScheme AI
+   Premium AI SaaS Theme
+   Part 1
+=================================================================== */
+
+/* -------------------- Fonts -------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* -------------------- Reset -------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #070B1D;
+  color: #fff;
+  overflow-x: hidden;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* -------------------- Theme -------------------- */
+
+:root {
+
+  --bg: #070B1D;
+  --bg2: #0D1328;
+
+  --primary: #4F8CFF;
+  --secondary: #8B5CF6;
+  --accent: #00E0FF;
+
+  --text: #FFFFFF;
+  --muted: #B7C0D1;
+
+  --glass: rgba(255, 255, 255, .08);
+  --glassBorder: rgba(255, 255, 255, .15);
+
+  --radius: 20px;
+
+  --shadow:
+    0 20px 60px rgba(0, 0, 0, .4);
+
+  --transition: .35s ease;
+
+}
+
+/* -------------------- Selection -------------------- */
+
+::selection {
+
+  background: var(--primary);
+
+  color: #fff;
+
+}
+
+/* -------------------- Scrollbar -------------------- */
+
+::-webkit-scrollbar {
+
+  width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+
+  background: #081021;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+  background:
+
+    linear-gradient(var(--primary),
+
+      var(--secondary));
+
+  border-radius: 20px;
+
+}
+
+/* -------------------- Aurora Background -------------------- */
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+
+    radial-gradient(circle at top left,
+
+      rgba(79, 140, 255, .18),
+
+      transparent 45%),
+
+    radial-gradient(circle at bottom right,
+
+      rgba(139, 92, 246, .18),
+
+      transparent 45%);
+
+  pointer-events: none;
+
+  z-index: -2;
+
+}
+
+/* -------------------- Video -------------------- */
+
+.video-bg {
+
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: -4;
+
+}
+
+.video-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+
+    rgba(7, 11, 29, .72);
+
+  backdrop-filter: blur(2px);
+
+  z-index: -3;
+
+}
+
+/* -------------------- Container -------------------- */
+
+.container {
+
+  width: min(1240px, 92%);
+
+  margin: auto;
+
+}
+
+/* -------------------- Glass -------------------- */
+
+.glass {
+
+  background: var(--glass);
+
+  border: 1px solid var(--glassBorder);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+}
+
+/* -------------------- Header -------------------- */
+
+header {
+
+  position: fixed;
+
+  top: 18px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: min(1240px, 94%);
+
+  padding: 18px 30px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: rgba(255, 255, 255, .08);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, .12);
+
+  border-radius: 999px;
+
+  transition: .35s;
+
+  z-index: 999;
+
+}
+
+header.active {
+
+  background: rgba(10, 16, 32, .9);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+
+}
+
+/* -------------------- Logo -------------------- */
+
+.logo {
+
+  font-size: 28px;
+
+  font-weight: 800;
+
+}
+
+.logo a {
+
+  text-decoration: none;
+
+  color: #fff;
+
+}
+
+.logo span {
+
+  color: var(--primary);
+
+}
+
+/* -------------------- Navigation -------------------- */
+
+nav {
+
+  display: flex;
+
+  gap: 36px;
+
+}
+
+nav a {
+
+  text-decoration: none;
+
+  color: #fff;
+
+  font-weight: 600;
+
+  position: relative;
+
+  transition: .3s;
+
+}
+
+nav a::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 0;
+
+  height: 2px;
+
+  background: var(--primary);
+
+  transition: .3s;
+
+}
+
+nav a:hover {
+
+  color: var(--primary);
+
+}
+
+nav a:hover::after {
+
+  width: 100%;
+
+}
+
+/* -------------------- Buttons -------------------- */
+
+.button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 15px 34px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  background:
+
+    linear-gradient(135deg,
+
+      var(--primary),
+
+      var(--secondary));
+
+  transition: var(--transition);
+
+}
+
+.button:hover {
+
+  transform: translateY(-4px);
+
+  box-shadow:
+
+    0 15px 40px rgba(79, 140, 255, .35);
+
+}
+
+.button-outline {
+
+  background: transparent;
+
+  border: 1px solid rgba(255, 255, 255, .15);
+
+}
+
+.button-outline:hover {
+
+  background: rgba(255, 255, 255, .08);
+
+}
+
+/* -------------------- Typography -------------------- */
+
+h1 {
+
+  font-size: clamp(3rem, 7vw, 6rem);
+
+  font-weight: 900;
+
+  line-height: 1.05;
+
+}
+
+h2 {
+
+  font-size: 48px;
+
+  margin-bottom: 20px;
+
+}
+
+h3 {
+
+  font-size: 28px;
+
+  margin-bottom: 10px;
+
+}
+
+p {
+
+  color: var(--muted);
+
+}
+
+/* -------------------- Sections -------------------- */
+
+section {
+
+  padding: 120px 0;
+
+}
+
+/* -------------------- Utilities -------------------- */
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 {
+  margin-top: 10px;
+}
+
+.mt-2 {
+  margin-top: 20px;
+}
+
+.mt-3 {
+  margin-top: 30px;
+}
+
+.mt-4 {
+  margin-top: 40px;
+}
+
+.mt-5 {
+  margin-top: 50px;
+}
+
+.hidden {
+
+  display: none;
+
+}
+
+.fade {
+
+  opacity: 0;
+
+  transform: translateY(40px);
+
+  transition: .8s;
+
+}
+
+.fade.show {
+
+  opacity: 1;
+
+  transform: none;
+
+}
+
+/* -------------------- Responsive -------------------- */
+
+@media(max-width:992px) {
+
+  nav {
+
+    gap: 18px;
+
+  }
+
+}
+
+@media(max-width:768px) {
+
+  header {
+
+    width: 95%;
+
+    padding: 14px 18px;
+
+  }
+
+  nav {
+
+    display: none;
+
+  }
+
+  h1 {
+
+    font-size: 42px;
+
+  }
+
+}
+
+/* ===================================================================
+   GovScheme AI
+   Premium AI SaaS Theme
+   Part 2 - Hero, Landing Page & AI Cards
+=================================================================== */
+
+/* ==========================
+   HERO SECTION
+========================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 920px;
+  margin: auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  margin-bottom: 30px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .12);
+  backdrop-filter: blur(16px);
+  color: #9fd5ff;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.hero h1 {
+  font-size: clamp(3.6rem, 7vw, 6.2rem);
+  line-height: 1.05;
+  font-weight: 900;
+  margin-bottom: 25px;
+  letter-spacing: -2px;
+}
+
+.hero h1 span {
+
+  background:
+    linear-gradient(135deg,
+      #4F8CFF,
+      #8B5CF6,
+      #00E0FF);
+
+  background-size: 300%;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientFlow 8s linear infinite;
+
+}
+
+.hero p {
+  max-width: 760px;
+  margin: auto;
+  font-size: 20px;
+  color: #BFC7D5;
+  margin-bottom: 45px;
+}
+
+/* ==========================
+   HERO BUTTONS
+========================== */
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .button {
+  min-width: 200px;
+}
+
+.button-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .15);
+}
+
+.button-outline:hover {
+  background: rgba(255, 255, 255, .08);
+}
+
+/* ==========================
+   HERO GLOW EFFECTS
+========================== */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  top: -250px;
+  left: -250px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle,
+      rgba(79, 140, 255, .22),
+      transparent 70%);
+  filter: blur(70px);
+  animation: floatGlow 14s ease-in-out infinite;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  right: -180px;
+  bottom: -180px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle,
+      rgba(139, 92, 246, .22),
+      transparent 70%);
+  filter: blur(70px);
+  animation: floatGlow2 16s ease-in-out infinite;
+}
+
+/* ==========================
+   AI FEATURE CARDS
+========================== */
+
+.hero-cards {
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 25px;
+
+  margin-top: 80px;
+
+}
+
+.hero-card {
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, .08);
+
+  border: 1px solid rgba(255, 255, 255, .12);
+
+  backdrop-filter: blur(16px);
+
+  transition: .35s;
+
+}
+
+.hero-card:hover {
+
+  transform: translateY(-10px);
+
+  border-color: #4F8CFF;
+
+  box-shadow:
+
+    0 20px 50px rgba(79, 140, 255, .25);
+
+}
+
+.hero-card i {
+
+  font-size: 42px;
+
+  margin-bottom: 18px;
+
+  display: block;
+
+}
+
+.hero-card h3 {
+
+  font-size: 22px;
+
+  margin-bottom: 10px;
+
+}
+
+.hero-card p {
+
+  font-size: 15px;
+
+  color: #BFC7D5;
+
+}
+
+/* ==========================
+   AI STATS
+========================== */
+
+.hero-stats {
+
+  margin-top: 70px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 60px;
+
+  flex-wrap: wrap;
+
+}
+
+.stat {
+
+  text-align: center;
+
+}
+
+.stat h2 {
+
+  font-size: 52px;
+
+  color: #4F8CFF;
+
+  margin-bottom: 5px;
+
+}
+
+.stat p {
+
+  color: #BFC7D5;
+
+}
+
+/* ==========================
+   GLASS FEATURE SECTION
+========================== */
+
+.feature-section {
+
+  margin-top: 100px;
+
+}
+
+.feature-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+
+}
+
+.feature-card {
+
+  padding: 40px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, .08);
+
+  border: 1px solid rgba(255, 255, 255, .12);
+
+  backdrop-filter: blur(18px);
+
+  transition: .35s;
+
+}
+
+.feature-card:hover {
+
+  transform: translateY(-8px);
+
+  border-color: #4F8CFF;
+
+}
+
+.feature-card i {
+
+  font-size: 42px;
+
+  color: #4F8CFF;
+
+  margin-bottom: 18px;
+
+}
+
+.feature-card h3 {
+
+  margin-bottom: 12px;
+
+}
+
+.feature-card p {
+
+  color: #BFC7D5;
+
+}
+
+/* ==========================
+   SCROLL INDICATOR
+========================== */
+
+.scroll-indicator {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 30px;
+
+  transform: translateX(-50%);
+
+}
+
+.mouse {
+
+  width: 34px;
+
+  height: 58px;
+
+  border: 2px solid rgba(255, 255, 255, .35);
+
+  border-radius: 40px;
+
+  position: relative;
+
+}
+
+.mouse::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #4F8CFF;
+
+  left: 50%;
+
+  top: 10px;
+
+  transform: translateX(-50%);
+
+  animation: scrollWheel 2s infinite;
+
+}
+
+/* ==========================
+   FLOATING ANIMATIONS
+========================== */
+
+@keyframes gradientFlow {
+
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 300%;
+  }
+
+}
+
+@keyframes floatGlow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(40px);
+  }
+
+}
+
+@keyframes floatGlow2 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-40px);
+  }
+
+}
+
+@keyframes scrollWheel {
+
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 22px);
+  }
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:1100px) {
+
+  .hero-cards {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+  .feature-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+}
+
+@media(max-width:768px) {
+
+  .hero {
+
+    padding-top: 140px;
+
+  }
+
+  .hero h1 {
+
+    font-size: 48px;
+
+  }
+
+  .hero-buttons {
+
+    flex-direction: column;
+
+    align-items: center;
+
+  }
+
+  .hero-cards {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .feature-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .hero-stats {
+
+    gap: 25px;
+
+  }
+
+  .hero p {
+
+    font-size: 18px;
+
+  }
+
+}
+
+/* ===================================================================
+   GovScheme AI
+   Premium AI SaaS Theme
+   Part 3A - Forms, Profile & Search
+=================================================================== */
+
+/* ==========================
+   PAGE WRAPPER
+========================== */
+
+.page-wrapper {
+  width: min(1200px, 92%);
+  margin: 140px auto 80px;
+}
+
+.page-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.page-header h2 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  max-width: 700px;
+  margin: auto;
+  color: var(--muted);
+}
+
+/* ==========================
+   GLASS PANELS
+========================== */
+
+.panel {
+  background: rgba(255, 255, 255, .08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 22px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+}
+
+/* ==========================
+   FORM LAYOUT
+========================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full {
+  grid-column: 1/-1;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #DCE4F2;
+}
+
+/* ==========================
+   INPUTS
+========================== */
+
+input,
+select,
+textarea {
+
+  width: 100%;
+
+  padding: 15px 18px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, .12);
+
+  background: rgba(255, 255, 255, .05);
+
+  color: #fff;
+
+  outline: none;
+
+  transition: .3s;
+
+  font-size: 15px;
+
+}
+
+input::placeholder,
+textarea::placeholder {
+
+  color: #9AA7C0;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+
+  border-color: #4F8CFF;
+
+  background: rgba(255, 255, 255, .08);
+
+  box-shadow:
+
+    0 0 0 4px rgba(79, 140, 255, .15);
+
+}
+
+/* Dropdown */
+
+select option {
+
+  background: #0D1328;
+
+  color: #fff;
+
+}
+
+/* Textarea */
+
+textarea {
+
+  resize: vertical;
+
+  min-height: 140px;
+
+}
+
+/* ==========================
+   PROFILE PAGE
+========================== */
+
+.profile-grid {
+
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 30px;
+
+}
+
+.profile-card {
+
+  background: rgba(255, 255, 255, .08);
+
+  border: 1px solid rgba(255, 255, 255, .12);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 22px;
+
+  padding: 35px;
+
+}
+
+.profile-card h3 {
+
+  margin-bottom: 25px;
+
+}
+
+.profile-summary {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+}
+
+.summary-item {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+}
+
+.summary-item span {
+
+  color: #AEB9D0;
+
+}
+
+.summary-item strong {
+
+  color: #fff;
+
+}
+
+/* ==========================
+   SEARCH BAR
+========================== */
+
+.search-box {
+
+  display: flex;
+
+  gap: 18px;
+
+  margin-bottom: 35px;
+
+}
+
+.search-box input {
+
+  flex: 1;
+
+}
+
+.search-box button {
+
+  min-width: 180px;
+
+}
+
+/* ==========================
+   FILTERS
+========================== */
+
+.filter-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+
+  margin-bottom: 35px;
+
+}
+
+/* ==========================
+   FLASH MESSAGES
+========================== */
+
+.flash {
+
+  padding: 18px 22px;
+
+  border-radius: 14px;
+
+  margin-bottom: 20px;
+
+  font-weight: 600;
+
+}
+
+.flash.success {
+
+  background: rgba(34, 197, 94, .18);
+
+  border: 1px solid rgba(34, 197, 94, .4);
+
+}
+
+.flash.error {
+
+  background: rgba(239, 68, 68, .18);
+
+  border: 1px solid rgba(239, 68, 68, .4);
+
+}
+
+.flash.warning {
+
+  background: rgba(245, 158, 11, .18);
+
+  border: 1px solid rgba(245, 158, 11, .4);
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:1000px) {
+
+  .profile-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .filter-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+}
+
+@media(max-width:768px) {
+
+  .form-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .search-box {
+
+    flex-direction: column;
+
+  }
+
+  .filter-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .panel {
+
+    padding: 25px;
+
+  }
+
+  .page-header h2 {
+
+    font-size: 34px;
+
+  }
+
+}
+
+/* ===================================================================
+   SchemeScout AI
+   Premium AI SaaS Theme
+   Part 3B - Cards, Footer & Final Polish
+=================================================================== */
+
+/* ==========================
+   SCHEME CARDS
+========================== */
+
+.scheme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.scheme-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 22px;
+  padding: 30px;
+  transition: .35s;
+}
+
+.scheme-card:hover {
+  transform: translateY(-8px);
+  border-color: #4F8CFF;
+  box-shadow: 0 20px 50px rgba(79, 140, 255, .25);
+}
+
+.scheme-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #4F8CFF, #8B5CF6, #00E0FF);
+}
+
+.scheme-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.scheme-description {
+  color: #BFC7D5;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* ==========================
+   MATCH BADGES
+========================== */
+
+.match-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.match-high {
+  background: #22C55E;
+}
+
+.match-medium {
+  background: #F59E0B;
+}
+
+.match-low {
+  background: #EF4444;
+}
+
+/* ==========================
+   TAGS
+========================== */
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.tag {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .12);
+  font-size: 13px;
+}
+
+/* ==========================
+   CARD BUTTONS
+========================== */
+
+.card-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.card-actions .button {
+  flex: 1;
+}
+
+.button.secondary {
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+
+.button.secondary:hover {
+  background: #1F2937;
+}
+
+/* ==========================
+   LOADER
+========================== */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #070B1D;
+  z-index: 99999;
+}
+
+.loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.loader-spinner {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, .1);
+  border-top-color: #4F8CFF;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================
+   CURSOR GLOW
+========================== */
+
+.cursor-glow {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle,
+      rgba(79, 140, 255, .20),
+      transparent 70%);
+  filter: blur(45px);
+  z-index: -1;
+}
+
+/* ==========================
+   SCROLL TOP BUTTON
+========================== */
+
+#scrollTop {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4F8CFF, #8B5CF6);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  z-index: 999;
+}
+
+#scrollTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer {
+  margin-top: 120px;
+  padding: 80px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-grid h3,
+.footer-grid h4 {
+  margin-bottom: 18px;
+}
+
+.footer-grid ul {
+  list-style: none;
+}
+
+.footer-grid li {
+  margin-bottom: 10px;
+}
+
+.footer-grid a {
+  color: #BFC7D5;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.footer-grid a:hover {
+  color: #4F8CFF;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.socials a {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  transition: .3s;
+}
+
+.socials a:hover {
+  background: #4F8CFF;
+  color: #fff;
+}
+
+footer hr {
+  margin: 40px 0 20px;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+
+footer .copyright {
+  text-align: center;
+  color: #8FA0BE;
+}
+
+/* ==========================
+   PAGE FADE
+========================== */
+
+body {
+  animation: pageFade .6s ease;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:1000px) {
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+}
+
+@media(max-width:768px) {
+
+  .scheme-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scheme-card {
+    padding: 22px;
+  }
+
+  #scrollTop {
+    right: 15px;
+    bottom: 15px;
+  }
+
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple .6s linear;
+  background: rgba(255, 255, 255, .35);
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
