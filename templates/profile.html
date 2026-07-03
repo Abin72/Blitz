@@ -1,0 +1,561 @@
+{% extends "layout.html" %}
+
+{% block title %}Profile | SchemeScout AI{% endblock %}
+
+{% block content %}
+
+<section class="page-wrapper">
+
+  <div class="page-header fade">
+
+    <div class="hero-badge">
+
+      <i class="fas fa-user-circle"></i>
+
+      My Profile
+
+    </div>
+
+    <h2>
+
+      Complete Your Profile
+
+    </h2>
+
+    <p>
+
+      Your information is securely analyzed by our AI to recommend
+      the most suitable government schemes.
+
+    </p>
+
+  </div>
+
+  <div class="profile-grid">
+
+    <!-- ==========================
+             PROFILE FORM
+        =========================== -->
+
+    <div class="profile-card fade">
+
+      <h3>
+
+        <i class="fas fa-id-card"></i>
+
+        Personal Information
+
+      </h3>
+
+      <form method="POST">
+
+        {{ form.hidden_tag() }}
+
+        <div class="form-grid">
+
+          <!-- Name -->
+
+          <div class="form-group">
+
+            {{ form.name.label }}
+
+            {{ form.name(
+            class="form-control",
+            placeholder="Enter your full name"
+            ) }}
+
+          </div>
+
+          <!-- Age -->
+
+          <div class="form-group">
+
+            {{ form.age.label }}
+
+            {{ form.age(
+            class="form-control",
+            placeholder="Age"
+            ) }}
+
+          </div>
+
+          <!-- Occupation -->
+
+          <div class="form-group">
+
+            {{ form.occupation.label }}
+
+            {{ form.occupation(
+            class="form-control"
+            ) }}
+
+          </div>
+
+          <!-- Qualification -->
+
+          <div class="form-group">
+
+            {{ form.qualification.label }}
+
+            {{ form.qualification(
+            class="form-control"
+            ) }}
+
+          </div>
+
+          <!-- Income -->
+
+          <div class="form-group">
+
+            {{ form.annual_income.label }}
+
+            {{ form.annual_income(
+            class="form-control",
+            placeholder="Annual Income"
+            ) }}
+
+          </div>
+
+          <!-- Category -->
+
+          <div class="form-group">
+
+            {{ form.category.label }}
+
+            {{ form.category(
+            class="form-control"
+            ) }}
+
+          </div>
+
+          <!-- Location -->
+
+          <div class="form-group">
+
+            {{ form.location.label }}
+
+            {{ form.location(
+            class="form-control"
+            ) }}
+
+          </div>
+
+          <!-- Family -->
+
+          <div class="form-group">
+
+            {{ form.family_size.label }}
+
+            {{ form.family_size(
+            class="form-control"
+            ) }}
+
+          </div>
+
+          <!-- Marital -->
+
+          <div class="form-group">
+
+            {{ form.marital_status.label }}
+
+            {{ form.marital_status(
+            class="form-control"
+            ) }}
+
+          </div>
+
+          <!-- Disability -->
+
+          <div class="form-group">
+
+            {{ form.disability_status.label }}
+
+            {{ form.disability_status(
+            class="form-control"
+            ) }}
+
+          </div>
+
+          <!-- Scheme -->
+
+          <div class="form-group full">
+
+            {{ form.scheme_type.label }}
+
+            {{ form.scheme_type(
+            class="form-control"
+            ) }}
+
+          </div>
+
+        </div>
+
+        <div class="mt-5">
+          {{ form.submit(
+          class="button"
+          ) }}
+
+        </div>
+
+      </form>
+
+    </div>
+
+    <!-- ==========================
+             AI SIDEBAR
+        =========================== -->
+
+    <div class="profile-card fade">
+
+      <h3>
+
+        <i class="fas fa-robot"></i>
+
+        AI Assistant
+
+      </h3>
+
+      <div class="profile-summary">
+
+        <div class="summary-item">
+
+          <span>
+
+            AI Analysis
+
+          </span>
+
+          <strong>
+
+            Ready
+
+          </strong>
+
+        </div>
+
+        <div class="summary-item">
+
+          <span>
+
+            Recommendation Engine
+
+          </span>
+
+          <strong>
+
+            CrewAI
+
+          </strong>
+
+        </div>
+
+        <div class="summary-item">
+
+          <span>
+
+            Database
+
+          </span>
+
+          <strong>
+
+            ChromaDB
+
+          </strong>
+
+        </div>
+
+        <div class="summary-item">
+
+          <span>
+
+            Model
+
+          </span>
+
+          <strong>
+
+            Groq LLM
+
+          </strong>
+
+        </div>
+
+      </div>
+
+      <br>
+
+      <div class="glass" style="padding:25px;">
+
+        <h4>
+
+          Tips
+
+        </h4>
+
+        <p>
+
+          ✔ Fill every field accurately.<br><br>
+
+          ✔ Income improves recommendation accuracy.<br><br>
+
+          ✔ Location enables state-specific schemes.<br><br>
+
+          ✔ Category and disability status unlock additional benefits.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}
+
+<!-- ==========================================
+     AI PROFILE DASHBOARD
+========================================== -->
+
+<section class="container">
+
+  <div class="page-header">
+
+    <h2>
+
+      AI Profile Dashboard
+
+    </h2>
+
+    <p>
+
+      Your profile will be analyzed using our intelligent
+      recommendation engine before matching government schemes.
+
+    </p>
+
+  </div>
+
+  <div class="hero-cards">
+
+    <div class="hero-card fade">
+
+      <i class="fas fa-user-check"></i>
+
+      <h3>
+
+        Profile Status
+
+      </h3>
+
+      <p>
+
+        Complete every field to receive the most accurate
+        recommendations.
+
+      </p>
+
+    </div>
+
+    <div class="hero-card fade">
+
+      <i class="fas fa-brain"></i>
+
+      <h3>
+
+        AI Processing
+
+      </h3>
+
+      <p>
+
+        CrewAI analyzes your occupation, education,
+        income and eligibility before ranking schemes.
+
+      </p>
+
+    </div>
+
+    <div class="hero-card fade">
+
+      <i class="fas fa-ranking-star"></i>
+
+      <h3>
+
+        Match Accuracy
+
+      </h3>
+
+      <p>
+
+        Recommendations include an AI-generated
+        eligibility score and explanation.
+
+      </p>
+
+    </div>
+
+    <div class="hero-card fade">
+
+      <i class="fas fa-file-circle-check"></i>
+
+      <h3>
+
+        Smart Documents
+
+      </h3>
+
+      <p>
+
+        Required documents are automatically suggested
+        for every recommended scheme.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ==========================================
+     HOW AI MAKES RECOMMENDATIONS
+========================================== -->
+
+<section class="container">
+
+  <div class="panel">
+
+    <div class="page-header">
+
+      <h2>
+
+        How Our AI Works
+
+      </h2>
+
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+
+        <i class="fas fa-id-card"></i>
+
+        <h3>
+
+          Profile Collection
+
+        </h3>
+
+        <p>
+
+          Your personal information is securely collected
+          from the profile form.
+
+        </p>
+
+      </div>
+
+      <div class="feature-card">
+
+        <i class="fas fa-database"></i>
+
+        <h3>
+
+          Scheme Database
+
+        </h3>
+
+        <p>
+
+          AI compares your profile with hundreds of
+          central and state government schemes.
+
+        </p>
+
+      </div>
+
+      <div class="feature-card">
+
+        <i class="fas fa-robot"></i>
+
+        <h3>
+
+          CrewAI Ranking
+
+        </h3>
+
+        <p>
+
+          Intelligent agents rank schemes according
+          to eligibility and relevance.
+
+        </p>
+
+      </div>
+
+      <div class="feature-card">
+
+        <i class="fas fa-chart-line"></i>
+
+        <h3>
+
+          Match Percentage
+
+        </h3>
+
+        <p>
+
+          Every recommendation includes a confidence
+          percentage and detailed reasoning.
+
+        </p>
+
+      </div>
+
+      <div class="feature-card">
+
+        <i class="fas fa-file-alt"></i>
+
+        <h3>
+
+          Required Documents
+
+        </h3>
+
+        <p>
+
+          AI identifies the documents you'll likely
+          need before applying.
+
+        </p>
+
+      </div>
+
+      <div class="feature-card">
+
+        <i class="fas fa-globe"></i>
+
+        <h3>
+
+          Official Links
+
+        </h3>
+
+        <p>
+
+          Open the official government application
+          portal directly from the recommendation.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
