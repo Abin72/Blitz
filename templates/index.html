@@ -1,1 +1,552 @@
+{% extends "layout.html" %}
 
+{% block title %}SchemeScout AI{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================
+     HERO SECTION
+=========================================== -->
+
+<section class="hero">
+
+  <div class="container hero-content">
+
+    <!-- AI Badge -->
+
+    <div class="hero-badge">
+
+      <i class="fas fa-wand-magic-sparkles"></i>
+
+      AI Powered Government Scheme Recommendation
+
+    </div>
+
+    <!-- Heading -->
+
+    <h1>
+
+      Find the Best
+
+      <span class="typing">
+
+        Government Schemes
+
+      </span>
+
+      For You
+
+    </h1>
+
+    <!-- Description -->
+
+    <p>
+
+      Discover personalized government schemes using Artificial
+      Intelligence. Complete your profile once and instantly
+      receive recommendations tailored to your eligibility,
+      income, education, occupation and location.
+
+    </p>
+
+    <!-- Buttons -->
+
+    <div class="hero-buttons">
+
+      <a href="{{ url_for('profile') }}" class="button">
+
+        <i class="fas fa-user"></i>
+
+        Complete Profile
+
+      </a>
+
+    </div>
+
+
+    <!-- Scroll Indicator -->
+
+    <div class="scroll-indicator">
+
+      <div class="mouse"></div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     FEATURES SECTION
+=========================================== -->
+
+<section class="container feature-section">
+
+  <div class="page-header">
+
+    <h2>
+
+      Why SchemeScout AI?
+
+    </h2>
+
+    <p>
+
+      Our AI analyzes your profile and recommends only the
+      schemes that truly match your eligibility.
+
+    </p>
+
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature-card">
+
+      <i class="fas fa-brain"></i>
+
+      <h3>
+
+        AI Recommendation
+
+      </h3>
+
+      <p>
+
+        Smart recommendations based on your personal profile,
+        income, occupation, education and category.
+
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <i class="fas fa-check-circle"></i>
+
+      <h3>
+
+        Eligibility Analysis
+
+      </h3>
+
+      <p>
+
+        Understand exactly why you qualify for each scheme
+        with detailed eligibility explanations.
+
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <i class="fas fa-file-lines"></i>
+
+      <h3>
+
+        Required Documents
+
+      </h3>
+
+      <p>
+
+        View all the required documents before applying,
+        reducing application errors.
+
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <i class="fas fa-bolt"></i>
+
+      <h3>
+
+        Instant Results
+
+      </h3>
+
+      <p>
+
+        No manual searching. Receive personalized AI-powered
+        results in seconds.
+
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <i class="fas fa-shield-halved"></i>
+
+      <h3>
+
+        Secure & Private
+
+      </h3>
+
+      <p>
+
+        Your information is processed securely and used only
+        to recommend relevant schemes.
+
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <i class="fas fa-globe"></i>
+
+      <h3>
+
+        Official Resources
+
+      </h3>
+
+      <p>
+
+        Access trusted government portals and official links
+        directly from your recommendations.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ==========================================
+     HOW IT WORKS
+=========================================== -->
+
+<section class="container">
+
+  <div class="page-header">
+
+    <h2>
+
+      How It Works
+
+    </h2>
+
+    <p>
+
+      Our AI-powered recommendation engine makes finding the
+      right government scheme simple and fast.
+
+    </p>
+
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature-card fade">
+
+      <div class="hero-badge">
+
+        Step 1
+
+      </div>
+
+      <i class="fas fa-user-edit"></i>
+
+      <h3>
+
+        Complete Your Profile
+
+      </h3>
+
+      <p>
+
+        Provide your age, occupation, education, income,
+        category, family size, disability status and location.
+
+      </p>
+
+    </div>
+
+    <div class="feature-card fade">
+
+      <div class="hero-badge">
+
+        Step 2
+
+      </div>
+
+      <i class="fas fa-robot"></i>
+
+      <h3>
+
+        AI Analysis
+
+      </h3>
+
+      <p>
+
+        Our CrewAI agents analyze your profile and compare
+        it against hundreds of government schemes.
+
+      </p>
+
+    </div>
+
+    <div class="feature-card fade">
+
+      <div class="hero-badge">
+
+        Step 3
+
+      </div>
+
+      <i class="fas fa-list-check"></i>
+
+      <h3>
+
+        Personalized Recommendations
+
+      </h3>
+
+      <p>
+
+        Receive only the schemes that match your eligibility,
+        along with reasons, benefits and required documents.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ==========================================
+     AI HIGHLIGHTS
+=========================================== -->
+
+<section class="container">
+
+  <div class="panel">
+
+    <div class="page-header">
+
+      <h2>
+
+        Why Choose AI?
+
+      </h2>
+
+      <p>
+
+        Traditional government scheme search is time-consuming.
+        GovScheme AI automates the entire process.
+
+      </p>
+
+    </div>
+
+    <div class="hero-cards">
+
+      <div class="hero-card">
+
+        <i class="fas fa-clock"></i>
+
+        <h3>
+
+          Save Time
+
+        </h3>
+
+        <p>
+
+          No need to browse dozens of government websites.
+
+        </p>
+
+      </div>
+
+      <div class="hero-card">
+
+        <i class="fas fa-bullseye"></i>
+
+        <h3>
+
+          Better Accuracy
+
+        </h3>
+
+        <p>
+
+          AI recommends only schemes that match your profile.
+
+        </p>
+
+      </div>
+
+      <div class="hero-card">
+
+        <i class="fas fa-chart-line"></i>
+
+        <h3>
+
+          Match Percentage
+
+        </h3>
+
+        <p>
+
+          Every recommendation includes an AI confidence score.
+
+        </p>
+
+      </div>
+
+      <div class="hero-card">
+
+        <i class="fas fa-file-circle-check"></i>
+
+        <h3>
+
+          Complete Guidance
+
+        </h3>
+
+        <p>
+
+          View benefits, eligibility, documents and official links.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ==========================================
+     PLATFORM STATS
+=========================================== -->
+
+<section class="container">
+
+  <div class="page-header">
+
+    <h2>
+
+      Platform Statistics
+
+    </h2>
+
+  </div>
+
+  <div class="hero-stats">
+
+    <div class="stat">
+
+      <h2 class="counter" data-target="250">
+
+        0
+
+      </h2>
+
+      <p>
+
+        Central Schemes
+
+      </p>
+
+    </div>
+
+    <div class="stat">
+
+      <h2 class="counter" data-target="100">
+
+        0
+
+      </h2>
+
+      <p>
+
+        State Schemes
+
+      </p>
+
+    </div>
+
+    <div class="stat">
+
+      <h2 class="counter" data-target="50000">
+
+        0
+
+      </h2>
+
+      <p>
+
+        Recommendations Generated
+
+      </p>
+
+    </div>
+
+    <div class="stat">
+
+      <h2 class="counter" data-target="99">
+
+        0
+
+      </h2>
+
+      <p>
+
+        AI Satisfaction %
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ==========================================
+     CALL TO ACTION
+=========================================== -->
+
+<section class="container">
+
+  <div class="panel text-center">
+
+    <h2>
+
+      Ready to Discover Your Government Benefits?
+
+    </h2>
+
+    <p class="mt-3">
+
+      Complete your profile and let AI instantly recommend the
+      best government schemes for you.
+
+    </p>
+
+    <div class="hero-buttons mt-5">
+
+      <a href="{{ url_for('profile') }}" class="button">
+
+        <i class="fas fa-user-plus"></i>
+
+        Start Now
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}
