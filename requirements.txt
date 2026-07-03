@@ -1,0 +1,8 @@
+flask
+flask-login
+flask-wtf
+wtforms
+email_validator
+requests
+groq
+python-dotenv
