@@ -1,0 +1,20 @@
+Scheme Report
+
+Name: {{ scheme_name }}
+
+Profile:
+{% if profile %}
+Name: {{ profile.name or profile.get('name', '') }}
+Age: {{ profile.age or profile.get('age', '') }}
+Occupation: {{ profile.occupation or profile.get('occupation', '') }}
+Qualification: {{ profile.qualification or profile.get('qualification', '') }}
+Annual Income: {{ profile.annual_income or profile.get('annual_income', '') }}
+Category: {{ profile.category or profile.get('category', '') }}
+
+Preferred Scheme Type: {{ profile.scheme_type or profile.get('scheme_type', '') }}
+{% else %}
+No profile details provided.
+{% endif %}
+
+Scheme Details:
+{{ scheme_details }}
