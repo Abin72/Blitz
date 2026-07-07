@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    {% block title %}SchemeScout AI{% endblock %}
+  </title>
+
+  <!-- Google Font -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+  <!-- CSS -->
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+
+<body>
+
+  <!-- ==========================
+     Loader
+========================== -->
+
+  <div class="loader">
+
+    <div class="loader-spinner"></div>
+
+  </div>
+
+  <!-- ==========================
+     Video Background
+========================== -->
+
+  <video autoplay muted loop playsinline class="video-bg">
+
+    <source src="{{ url_for('static', filename='Gov.mp4') }}" type="video/mp4">
+
+  </video>
+
+  <div class="video-overlay"></div>
+
+  <!-- ==========================
+     Header
+========================== -->
+
+  <header id="navbar">
+
+    <div class="logo">
+
+      <a href="{{ url_for('index') }}">
+
+        <span>Scheme</span>Scout AI
+
+      </a>
+
+    </div>
+
+    <nav>
+
+      <a href="{{ url_for('index') }}">
+
+        Home
+
+      </a>
+      <a href="{{ url_for('search') }}">
+
+        Search
+
+      </a>
+
+    </nav>
+
+    <a href="{{ url_for('profile') }}" class="button">
+
+      Profile
+
+    </a>
+
+  </header>
+
+  <!-- ==========================
+     Flash Messages
+========================== -->
+
+  <div class="container mt-5">
+
+    {% with messages=get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+    {% for category,message in messages %}
+
+    <div class="flash {{ category }}">
+
+      {{ message }}
+
+    </div>
+
+    {% endfor %}
+
+    {% endif %}
+
+    {% endwith %}
+
+  </div>
+
+  <!-- ==========================
+     Main
+========================== -->
+
+  <main>
+
+    {% block content %}
+
+    {% endblock %}
+
+  </main>
+
+  <!-- ==========================
+     Footer
+========================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <h3>
+
+            SchemeScout AI
+
+          </h3>
+
+          <p>
+
+            AI Powered Government Scheme Recommendation
+            System for Indian Citizens.
+
+          </p>
+
+        </div>
+
+        <div>
+
+          <h4>
+
+            Quick Links
+
+          </h4>
+
+          <ul>
+
+            <li>
+
+              <a href="{{ url_for('index') }}">
+
+                Home
+
+              </a>
+
+            </li>
+
+            <li>
+
+              <a href="{{ url_for('profile') }}">
+
+                Profile
+
+              </a>
+
+            </li>
+
+            <li>
+
+              <a href="{{ url_for('search') }}">
+
+                Search
+
+              </a>
+
+            </li>
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+
+      © 2026 SchemeScout AI
+
+      Built using Flask • CrewAI • Groq • ChromaDB
+
+    </p>
+
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+
+  <button id="scrollTop">
+
+    <i class="fas fa-arrow-up"></i>
+
+  </button>
+
+  <!-- JS -->
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

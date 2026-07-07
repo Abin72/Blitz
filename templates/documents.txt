@@ -1,0 +1,18 @@
+
+
+Required Documents for {{ scheme_name }}
+
+
+
+Official Application Link: {{ application_link or 'Not available' }}
+
+
+-----
+Required Documents:
+{% if required_documents %}
+{% for doc in required_documents %}- {{ doc }}
+{% endfor %}
+{% else %}
+No required documents provided.
+{% endif %}
+----

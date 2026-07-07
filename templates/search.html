@@ -1,0 +1,187 @@
+{% extends "layout.html" %}
+
+{% block title %}AI Search | GovScheme AI{% endblock %}
+
+{% block content %}
+
+<section class="page-wrapper">
+
+  <!-- ================= SEARCH ================= -->
+
+  <div class="page-header">
+
+    <div class="hero-badge">
+      <i class="fas fa-robot"></i>
+      CrewAI Recommendation Engine
+    </div>
+
+    <h2>Search Government Schemes</h2>
+
+    <p>
+      Describe what you are looking for and let AI find
+      the best matching Government Schemes.
+    </p>
+
+  </div>
+
+  <div class="panel">
+
+    <form action="{{ url_for('search') }}" method="POST">
+
+      <div class="search-box">
+
+        <input type="text" name="search_query" value="{{ prompt if prompt else '' }}"
+          placeholder="Example: Scholarships for engineering students" required>
+
+        <button class="button" type="submit">
+          <i class="fas fa-paper-plane"></i>
+          Search
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <!-- ================= PROFILE ================= -->
+
+  {% if profile %}
+
+  <div class="panel mt-5">
+
+    <h3>Current Profile</h3>
+
+    <div class="tag-group">
+
+      {% if profile.name %}<span class="tag">{{ profile.name }}</span>{% endif %}
+      {% if profile.age %}<span class="tag">{{ profile.age }} Years</span>{% endif %}
+      {% if profile.gender %}<span class="tag">{{ profile.gender }}</span>{% endif %}
+      {% if profile.state %}<span class="tag">{{ profile.state }}</span>{% endif %}
+      {% if profile.category %}<span class="tag">{{ profile.category }}</span>{% endif %}
+      {% if profile.occupation %}<span class="tag">{{ profile.occupation }}</span>{% endif %}
+
+    </div>
+
+  </div>
+
+  {% endif %}
+
+  <!-- ================= RESULTS ================= -->
+
+  {% if result and result.schemes %}
+
+  <div class="page-header mt-5">
+
+    <h2>AI Recommendations</h2>
+
+    <p>Schemes ranked by CrewAI Engine.</p>
+
+  </div>
+
+  <div class="scheme-grid">
+
+    {% for scheme in result.schemes %}
+
+    <div class="scheme-card">
+
+      <div class="match-badge match-high">
+        {{ scheme.eligibility_score }}% Match
+      </div>
+
+      <h3 class="scheme-title">{{ scheme.name }}</h3>
+
+      <p class="scheme-description">{{ scheme.description }}</p>
+
+      <div class="tag-group">
+
+        {% if scheme.source %}
+        <span class="tag">{{ scheme.source }}</span>
+        {% endif %}
+
+        {% if scheme.last_date %}
+        <span class="tag">Last Date: {{ scheme.last_date }}</span>
+        {% endif %}
+
+      </div>
+
+      <!-- BENEFITS -->
+      {% if scheme.benefits %}
+      <h4>Benefits</h4>
+      <p>{{ scheme.benefits }}</p>
+      {% endif %}
+
+      <!-- ELIGIBILITY -->
+      {% if scheme.eligibility_criteria %}
+      <h4>Eligibility Criteria</h4>
+
+      {% if scheme.eligibility_criteria is string %}
+      <p>{{ scheme.eligibility_criteria }}</p>
+      {% else %}
+      <ul class="scheme-list">
+        {% for item in scheme.eligibility_criteria %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endif %}
+
+      <!-- DOCUMENTS -->
+      {% if scheme.required_documents %}
+      <h4>Required Documents</h4>
+
+      {% if scheme.required_documents is string %}
+      <p>{{ scheme.required_documents }}</p>
+      {% else %}
+      <div class="tag-group">
+        {% for doc in scheme.required_documents %}
+        <span class="tag">{{ doc }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endif %}
+
+      <!-- ACTIONS -->
+      <div class="card-actions">
+
+        {% if scheme.gov_redirect_url %}
+        <a href="{{ scheme.gov_redirect_url }}" target="_blank" class="button">
+          <i class="fas fa-globe"></i>
+          Official Website
+        </a>
+        {% endif %}
+
+      </div>
+      <div class="card-actions mt-2">
+        <form method="post" action="{{ url_for('download_report') }}" class="inline-form">
+          <input type="hidden" name="selected_scheme" value="{{ scheme.name }}" />
+          <input type="hidden" name="selected_details"
+            value="{% if scheme.last_date %}Application deadline: {{ scheme.last_date }}. {% endif %}{% if scheme.application_link %}Official website: {{ scheme.application_link }}. {% endif %}{% if scheme.required_documents %}Required documents: {{ scheme.required_documents | join(', ') }}.{% endif %}" />
+          <button class="button" type="submit">Download Scheme Report</button>
+        </form>
+
+      </div>
+
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+  {% else %}
+
+  <!-- EMPTY STATE -->
+
+  <div class="panel mt-5 text-center">
+
+    <h2>No Results Yet</h2>
+
+    <p>Search for schemes to see AI recommendations.</p>
+
+  </div>
+
+  {% endif %}
+
+</section>
+
+{% endblock %}
